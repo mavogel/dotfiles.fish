@@ -53,3 +53,7 @@ jobs:
       - name: Set macOS defaults
         run: |
           ~/.dotfiles/macos/set-defaults.sh
+      - name: Install brewfile
+        run: |
+          cd ~/.dotfiles
+          brew bundle
