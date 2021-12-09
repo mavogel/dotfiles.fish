@@ -44,7 +44,7 @@ jobs:
       - name: Install dotfiles from the README
         run: |
           bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-          brew install fish
+          brew install fish grc
           cd ~/.dotfiles
           ./script/bootstrap.fish
       - name: Set macOS defaults
