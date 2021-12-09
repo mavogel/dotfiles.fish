@@ -41,13 +41,12 @@ jobs:
           # we fake a git user.email to avoid a prompt
           git config --global user.name "test"
           git config --global user.email "test@example.com"
-      - name: Install dotfiles
+      - name: Install dotfiles from the README
         run: |
+          bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+          brew install fish
           cd ~/.dotfiles
           ./script/bootstrap.fish
-      - name: Install recommended software from the README
-        run: |
-          brew install git-delta fzf gh kubectx starship zoxide
       - name: Set macOS defaults
         run: |
           ~/.dotfiles/macos/set-defaults.sh
