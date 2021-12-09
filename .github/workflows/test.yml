@@ -16,14 +16,13 @@ jobs:
         with:
           fetch-depth: 0
           path: dotfiles
-      - name: Installing brew
+      - name: Setup CI structure
         run: |
+          # we need brew already upfront
           bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
           brew --version
-      - name: Setup structure
-        run: |
           # we need gnu sed to use the -i option properly without file extension
-          brew install gnu-sed
+          brew install gnu-sed git
           # and add it to the path
           export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
           sed --version
@@ -39,9 +38,8 @@ jobs:
           sed -i '45s/^/#/' ~/.dotfiles/git/gitconfig.local.symlink 
           sed -i '46s/^/#/' ~/.dotfiles/git/gitconfig.local.symlink 
           sed -i '47s/^/#/' ~/.dotfiles/git/gitconfig.local.symlink 
-      - name: Install prerequisites from the README
-        run: |
-          brew install git fish grc
+          # we fake a git user.email to avoid a prompt
+          git config --global user.name "test"
           git config --global user.email "test@example.com"
       - name: Install dotfiles
         run: |
@@ -53,7 +51,3 @@ jobs:
       - name: Set macOS defaults
         run: |
           ~/.dotfiles/macos/set-defaults.sh
-      - name: Install brewfile
-        run: |
-          cd ~/.dotfiles
-          brew bundle

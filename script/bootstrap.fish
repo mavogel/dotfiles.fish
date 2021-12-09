@@ -27,6 +27,12 @@ function on_exit -p %self
 	end
 end
 
+function setup_prerequisites
+	bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    brew --version
+	brew bundle --file "$DOTFILES_ROOT/brewfile"
+end
+
 function setup_gitconfig
 	set managed (git config --global --get dotfiles.managed)
 	# if there is no user.email, we'll assume it's a new machine/setup and ask it
@@ -103,6 +109,10 @@ function install_dotfiles
 	link_file $DOTFILES_ROOT/kitty/kitty.conf $HOME/.config/kitty/kitty.conf backup
 		or abort kitty
 end
+
+setup_prerequisites
+	and success 'prerequisites'
+	or abort 'prerequisites'
 
 curl -sL git.io/fisher | source && fisher install jorgebucaran/fisher
 	and success 'fisher'
