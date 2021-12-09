@@ -30,22 +30,16 @@ without any issues, so, to update, `git pull` and run the `bootstrap.fish`
 script.
 
 ## Installation
-
-### Dependencies
-
-First, make sure you have all those things installed:
-
-- `git`: to clone the repo
-- `curl`: to download some stuff
-- `tar`: to extract downloaded stuff
-- `fish`: the shell
-- `sudo`: some configs may need that
-- [`grc`](https://github.com/garabik/grc) to colorize command's outputs
 ### Install
 
-Then, run these steps:
+Simply, run these steps:
+- which first will install [brew](https://brew.sh), the package manager and the dependencies
+- `fish`: the shell
+- [`grc`](https://github.com/garabik/grc) to colorize command's outputs
 
 ```console
+$ bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+$ brew install fish grc
 $ git clone https://github.com/caarlos0/dotfiles.fish.git ~/.dotfiles
 $ cd ~/.dotfiles
 $ ./script/bootstrap.fish
@@ -102,13 +96,6 @@ To install them all with `brew`:
 
 ```console
 $ brew install fish git-delta fzf gh grc kubectx starship zoxide
-```
-
-On Ubuntu:
-
-```console
-sh -c "$(curl -fsSL https://starship.rs/install.sh)"
-sudo apt install fish grc fzf zoxide
 ```
 
 ## macOS defaults
