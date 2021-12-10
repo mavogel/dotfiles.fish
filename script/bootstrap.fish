@@ -108,13 +108,6 @@ function setup_software
 	brew bundle --file "$DOTFILES_ROOT/brewfile"
 end
 
-function setup_symlinks
-	if ! test -e /usr/local/bin/code
-		echo " › Symlink for Visual Studio Code"
-		ln -s /usr/local/bin/code '/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code'
-	end
-end
-
 function setup_path_extensions
 	set -Ua fish_user_paths /usr/local/opt/gnu-getopt/bin
 	set -Ua fish_user_paths /usr/local/opt/gnu-sed/libexec/gnubin
@@ -173,12 +166,6 @@ setup_software
 	or abort 'software'
 
 success 'software packages installed/updated!'
-
-setup_symlinks
-	and success 'symlinks'
-	or abort 'symlinks'
-
-success 'symlinks installed/updated!'
 
 setup_path_extensions
 	and success 'path_extensions'
