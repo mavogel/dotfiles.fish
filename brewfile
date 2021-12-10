@@ -93,6 +93,7 @@ cask "spotify"
 #cask "synology-drive"
 #cask "tableplus"
 #cask "typora"
+cask "visual-studio-code"
 cask "vlc"
 cask "zoom"
 #

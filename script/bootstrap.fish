@@ -108,6 +108,17 @@ function setup_software
 	brew bundle --file "$DOTFILES_ROOT/brewfile"
 end
 
+function setup_symlinks
+	if ! test -e /usr/local/bin/code
+		echo " › Symlink for Visual Studio Code"
+		ln -s /usr/local/bin/code '/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code'
+	end
+end
+
+function setup_vscode extensions
+	cat "$DOTFILES_ROOT/vscode/extensions.list" | grep -v '^#' | xargs -L1 code --install-extension
+end
+
 curl -sL git.io/fisher | source && fisher install jorgebucaran/fisher
 	and success 'fisher'
 	or abort 'fisher'
@@ -156,3 +167,15 @@ setup_software
 	or abort 'software'
 
 success 'software packages installed/updated!'
+
+setup_symlinks
+	and success 'symlinks'
+	or abort 'symlinks'
+
+success 'symlinks installed/updated!'
+
+setup_vscode extensions
+	and success 'vscode extensions'
+	or abort 'vscode extensions'
+
+success 'vscode extensions installed/updated!'
