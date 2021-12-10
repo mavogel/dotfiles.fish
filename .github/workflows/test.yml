@@ -41,10 +41,17 @@ jobs:
           # we fake a git user.email to avoid a prompt
           git config --global user.name "test"
           git config --global user.email "test@example.com"
+          # we move the existing aws-cli Installation to not fail when installing via brew
+          mv /usr/local/bin/aws /usr/local/bin/aws.bak
+          mv /usr/local/bin/aws_completer /usr/local/bin/aws_completer.bak
+          # same for go
+          mv /usr/local/bin/go /usr/local/bin/go.bak 
+          mv /usr/local/bin/gofmt /usr/local/bin/gofmt.bak 
       - name: Install dotfiles from the README
         run: |
           bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-          brew install fish grc
+          brew install fish grc mas
+          # TODO mas sigin test@appleid.com 'pwd'
           cd ~/.dotfiles
           ./script/bootstrap.fish
       - name: Set macOS defaults

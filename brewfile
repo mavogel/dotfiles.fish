@@ -4,6 +4,7 @@ tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/core"
 tap "kreuzwerker/taps"
+tap "warrensbox/tap"
 # formulas and casks
 cask "1password"
 cask "alfred"
@@ -72,7 +73,6 @@ cask "screenflow"
 cask "signal"
 cask "sketch"
 cask "slack"
-cask "sonos"
 cask "spotify"
 brew "ssh-copy-id"
 brew "starship"
@@ -95,9 +95,8 @@ brew "yq"
 cask "zoom"
 brew "zoxide"
 # app stores
-## not signed
+##  mas not signed in to Mac App Store
 #mas "Theine", id: 955848755
 #mas "Spark", id: 1176895641
 #mas "RSS Bot ", id: 605732865
-# later
-mas "Xcode", id: 497799835
+#mas "Xcode", id: 497799835
