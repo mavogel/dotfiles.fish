@@ -115,6 +115,12 @@ function setup_symlinks
 	end
 end
 
+function setup_path_extensions
+	set -Ua fish_user_paths /usr/local/opt/gnu-getopt/bin
+	set -Ua fish_user_paths /usr/local/opt/gnu-sed/libexec/gnubin
+	set -Ua fish_user_paths /usr/local/opt/coreutils/libexec/gnubin
+end
+
 function setup_vscode_extensions
 	cat "$DOTFILES_ROOT/vscode/extensions.list" | grep -v '^#' | xargs -L1 code --install-extension
 end
@@ -173,6 +179,12 @@ setup_symlinks
 	or abort 'symlinks'
 
 success 'symlinks installed/updated!'
+
+setup_path_extensions
+	and success 'path_extensions'
+	or abort 'path_extensions'
+
+success 'path_extensions installed/updated!'
 
 setup_vscode_extensions
 	and success 'vscode extensions'
