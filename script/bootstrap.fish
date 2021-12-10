@@ -115,7 +115,7 @@ function setup_symlinks
 	end
 end
 
-function setup_vscode extensions
+function setup_vscode_extensions
 	cat "$DOTFILES_ROOT/vscode/extensions.list" | grep -v '^#' | xargs -L1 code --install-extension
 end
 
@@ -174,7 +174,7 @@ setup_symlinks
 
 success 'symlinks installed/updated!'
 
-setup_vscode extensions
+setup_vscode_extensions
 	and success 'vscode extensions'
 	or abort 'vscode extensions'
 
