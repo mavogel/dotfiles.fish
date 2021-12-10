@@ -30,6 +30,15 @@ without any issues, so, to update, `git pull` and run the `bootstrap.fish`
 script.
 
 ## Installation
+
+### Prerequisites
+- add your `ssh` to the agent: `eval $(ssh-agent)` + `ssh-add ~/.ssh/id_rsa`
+- install the xcode tools `xcode-select --install`
+- set your git user
+```console
+$ git config --global user.name "test"
+$ git config --global user.email "test@example.com"
+```
 ### Install
 
 Simply, run these steps:
@@ -46,6 +55,9 @@ $ ./script/bootstrap.fish
 ```
 
 > All changed files will be backed up with a `.backup` suffix.
+
+#### After install
+- add you gpg keys to the agent
 
 #### Update
 
