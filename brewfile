@@ -97,8 +97,7 @@ brew "yq"
 cask "zoom"
 brew "zoxide"
 # app stores
-##  mas not signed in to Mac App Store
-#mas "Theine", id: 955848755
-#mas "Spark", id: 1176895641
+mas "Theine", id: 955848755
+mas "Spark", id: 1176895641
 #mas "RSS Bot ", id: 605732865
 #mas "Xcode", id: 497799835
