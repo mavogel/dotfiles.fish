@@ -58,7 +58,7 @@ cd ~/.dotfiles
 > All changed files will be backed up with a `.backup` suffix.
 
 #### After install
-- add you gpg keys to the agent
+- add you gpg keys to the keychain
 
 #### Update
 
