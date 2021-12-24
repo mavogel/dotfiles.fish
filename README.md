@@ -39,6 +39,7 @@ script.
 $ git config --global user.name "test"
 $ git config --global user.email "test@example.com"
 ```
+- install [Theine](https://apps.apple.com/de/app/theine/id955848755?mt=12) to avoid sleep mode during the install, while still locking the screen.
 ### Install
 
 Simply, run these steps:
@@ -47,11 +48,11 @@ Simply, run these steps:
 - [`grc`](https://github.com/garabik/grc) to colorize command's outputs
 
 ```console
-$ bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-$ brew install fish grc
-$ git clone https://github.com/caarlos0/dotfiles.fish.git ~/.dotfiles
-$ cd ~/.dotfiles
-$ ./script/bootstrap.fish
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+brew install fish grc
+git clone --branch feat-auto-install https://github.com/mavogel/dotfiles.fish.git ~/.dotfiles
+cd ~/.dotfiles
+./script/bootstrap.fish
 ```
 
 > All changed files will be backed up with a `.backup` suffix.
