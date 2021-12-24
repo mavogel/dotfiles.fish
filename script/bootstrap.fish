@@ -109,9 +109,16 @@ function setup_software
 end
 
 function setup_path_extensions
-	set -Ua fish_user_paths /usr/local/opt/gnu-getopt/bin
-	set -Ua fish_user_paths /usr/local/opt/gnu-sed/libexec/gnubin
-	set -Ua fish_user_paths /usr/local/opt/coreutils/libexec/gnubin
+	switch (uname -p)
+	case arm
+		set -Up fish_user_paths /opt/homebrew/opt/gnu-getopt/bin
+		set -Up fish_user_paths /opt/homebrew/opt/gnu-sed/libexec/gnubin
+		set -Up fish_user_paths /opt/homebrew/opt/gnu-indent/libexec/gnubin
+	case '*'
+		set -Up fish_user_paths /usr/local/opt/gnu-getopt/bin
+		set -Up fish_user_paths /usr/local/opt/gnu-sed/libexec/gnubin
+		set -Up fish_user_paths /usr/local/opt/coreutils/libexec/gnubin
+	end
 end
 
 function setup_vscode_extensions
