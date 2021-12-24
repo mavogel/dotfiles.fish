@@ -118,6 +118,12 @@ function setup_vscode_extensions
 	cat "$DOTFILES_ROOT/vscode/extensions.list" | grep -v '^#' | xargs -L1 code --install-extension
 end
 
+function setup_fish_as_default_shell
+	chsh -s (which fish)
+		and success set (fish --version) as the default shell
+		or abort 'set fish as default shell'
+end
+
 curl -sL git.io/fisher | source && fisher install jorgebucaran/fisher
 	and success 'fisher'
 	or abort 'fisher'
@@ -152,14 +158,9 @@ if ! grep (command -v fish) /etc/shells
 end
 
 test (which fish) = $SHELL
-	and success 'dotfiles installed/updated!'
-	and exit 0
+	and success 'fish is already the default shell'
+	or setup_fish_as_default_shell
 
-chsh -s (which fish)
-	and success set (fish --version) as the default shell
-	or abort 'set fish as default shell'
-
-success 'dotfiles installed/updated!'
 
 setup_software
 	and success 'software'
@@ -178,3 +179,5 @@ setup_vscode_extensions
 	or abort 'vscode extensions'
 
 success 'vscode extensions installed/updated!'
+
+success 'dotfiles installed/updated!'
