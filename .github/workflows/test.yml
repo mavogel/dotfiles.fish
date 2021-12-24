@@ -34,10 +34,12 @@ jobs:
           sudo chsh -s $(which bash)
           # then replace the chsh for fish for the pipeline
           sed -i 's#chsh -s (which fish)#sudo chsh -s (which fish) (whoami)#' ~/.dotfiles/script/bootstrap.fish
-          # ths will comment line 45-47 to brew cask with https as we do not have a ssh key for the pipeline
-          sed -i '45s/^/#/' ~/.dotfiles/git/gitconfig.local.symlink 
-          sed -i '46s/^/#/' ~/.dotfiles/git/gitconfig.local.symlink 
-          sed -i '47s/^/#/' ~/.dotfiles/git/gitconfig.local.symlink 
+          # this will comment line 45-47 to brew cask with https as we do not have a ssh key for the pipeline
+          sed -i '45s/^/#/' ~/.dotfiles/git/gitconfig.local.symlink
+          sed -i '46s/^/#/' ~/.dotfiles/git/gitconfig.local.symlink
+          sed -i '47s/^/#/' ~/.dotfiles/git/gitconfig.local.symlink
+          # this will deactivate the mas installs as we need to login via the GUI
+          sed -i 's/^mas/#mas/g' ~/.dotfiles/brewfile
           # we fake a git user.email to avoid a prompt
           git config --global user.name "test"
           git config --global user.email "test@example.com"
@@ -51,7 +53,6 @@ jobs:
         run: |
           bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
           brew install fish grc mas
-          # TODO mas sigin test@appleid.com 'pwd'
           cd ~/.dotfiles
           ./script/bootstrap.fish
       - name: Set macOS defaults
