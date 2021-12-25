@@ -2,3 +2,5 @@ builds:
 - skip: true
 changelog:
   use: github
+milestones:
+  - close: true
