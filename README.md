@@ -140,3 +140,17 @@ If you use [vscode](https://code.visualstudio.com/) then you need to fix the fon
 [scrn1]: /docs/screenshot1.png
 [scrn2]: /docs/screenshot2.png
 [vsctfont]: /docs/vscode-terminal-font.png
+
+## Release Process
+
+There is a `release` target within the Makefile that wraps up the steps to
+release a new version.
+
+> NOTE: Pass the `VERSION` variable when running the command to properly set
+> the tag version for the release.
+
+```bash
+$ VERSION=vX.Y.Z make release
+# EXAMPLE:
+$ VERSION=v0.11.3 make release
+```
