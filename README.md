@@ -154,3 +154,6 @@ $ VERSION=vX.Y.Z make release
 # EXAMPLE:
 $ VERSION=v0.11.3 make release
 ```
+
+Once the `tag` has been pushed, the `goreleaser` github action will take care
+of the rest.
