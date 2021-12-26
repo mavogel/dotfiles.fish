@@ -9,7 +9,7 @@
 [![Go Status](https://github.com/mavogel/dotfiles.fish/workflows/test/badge.svg)](https://github.com/mavogel/dotfiles.fish/actions)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/mavogel/dotfiles.fish/blob/main/LICENSE)  
 
-The main reasons for the swtiching from zsh to fish are:
+The main reasons for the switching from zsh to fish are:
 
 - a lot of things I have out of the box on Fish needed plugins on zsh
 - Fish autocompletion is awesome
