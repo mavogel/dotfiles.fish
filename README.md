@@ -48,7 +48,7 @@ $ cd ~/.dotfiles
 $ ./script/bootstrap.fish
 ```
 
-> All changed files will be backed up with a `.backup` suffix.
+> All changed files were backed up with a `.backup` suffix.
 
 #### After install
 - add you keys to the [GPGTools](https://gpgtools.org/) and add the key as global [git signing key](https://docs.github.com/en/authentication/managing-commit-signature-verification/telling-git-about-your-signing-key)
@@ -66,45 +66,68 @@ git config --global user.signingkey 3AA5C34371567BD2
 
 #### Update
 
-To update, you just need to `git pull` and run the bootstrap script again:
+To update, you need to `git pull` and run the bootstrap script again:
 
 ```console
-$ cd ~/.dotfiles
-$ git pull origin master
-$ ./script/bootstrap.fish
+cd ~/.dotfiles
+git pull origin master
+./script/bootstrap.fish
 ```
 
 ## Revert
 
-Reverting is not totally automated, but it pretty much consists in removing
-the fish config and dotfiles folder, as well as moving back some config files.
+Reverting is not totally automated, but it pretty much consists in removing the
+fish configuration and the `.dotfiles` folder, as well as moving back some other
+configuration files:
 
 ```console
-$ rm -rf ~/.dotfiles $__fish_config_dir
+rm -rf ~/.dotfiles $__fish_config_dir
 ```
 
-The bootstrap script would have created a bunch of symlinks that will now be broken.
-You will have to investigate those manually.
-In cases a file already existed, the boostrap script should have created a `.backup` file with the same name.
+The bootstrap script created a bunch of symbolic links that are now invalid.
+You will have to investigate those manually. In cases a file already existed,
+the `script/bootstrap.fish` script should have created a `.backup` file with
+the same name.
 
 ## Recommended Software
 
-- [`alacritty`](https://github.com/alacritty/alacritty) a cross-platform, OpenGL terminal emulator;
+- [`alacritty`](https://github.com/alacritty/alacritty) a cross-platform, OpenGL
+  terminal emulator;
 - [`bat`](https://github.com/sharkdp/bat) a cat(1) clone with wings;
 - [`delta`](https://github.com/dandavison/delta) for better git diffs;
-- [`fd`](https://github.com/sharkdp/fd) a simple, fast and user-friendly alternative to `find`;
+- [`fd`](https://github.com/sharkdp/fd) a simple, fast and user-friendly
+  alternative to `find`;
 - [`fzf`](https://github.com/junegunn/fzf) for a fuzzy-finder;
-- [`gh`](https://github.com/cli/cli) for more GitHub integration with the terminal;
+- [`gum`](https://github.com/charmbracelet/gum) A tool for glamorous shell
+  scripts;
+- [`gh`](https://github.com/cli/cli) for more GitHub integration with the
+  terminal;
 - [`grc`](https://github.com/garabik/grc) to colorize command's outputs;
-- [`kitty`](https://github.com/kovidgoyal/kitty) a cross-platform, fast, feature-rich, GPU based terminal;
-- [`kubectx`](https://github.com/ahmetb/kubectx) for better Kubernetes context and namespace switch;
-- [`neovim`](https://neovim.io) hyperextensible Vim-based text editor;
-- [`starship.rs`](https://starship.rs) the shell we are using;
+- [`kitty`](https://github.com/kovidgoyal/kitty) a cross-platform, fast,
+  feature-rich, GPU based terminal;
+- [`kubectx`](https://github.com/ahmetb/kubectx) for better Kubernetes context
+  and namespaces switch;
+- [`neovim`](https://neovim.io) extensible Vim-based text editor;
+- [`starship.rs`](https://starship.rs) the shell prompt we are using;
 
 To install them all with `brew`:
 
 ```console
-$ brew install fish git-delta fzf gh grc kubectx starship zoxide fd exa bat alacritty kitty neovim
+brew install \
+  alacritty \
+  bat \
+  exa \
+  fd \
+  fish \
+  fzf \
+  gh \
+  git-delta \
+  grc \
+  kitty \
+  kubectx \
+  neovim \
+  starship \
+  zoxide
 ```
 
 or you can also take a look at the [brewfile](brewfile) for all software I have installed.
@@ -119,14 +142,25 @@ You use it by running:
 
 And logging out and in again or restart.
 
-## Themes and fonts being used
+## Themes and fonts
 
-Gruvbox dark (high contrast) and Inconsolata Font.
+*Catppuccin Mocha* and *MonoLisa* Font.
 
 If you use [vscode](https://code.visualstudio.com/) then you need to fix the font for terminal:
 `Terminal > Integrated: Font Family`: `Inconsolata Nerd Font Mono`
 ![vscode-terminal-font][vsctfont]
 
+### neovim with LSP, git signs, etc
+
+![CleanShot 2022-10-01 at 20 12 19@2x](https://user-images.githubusercontent.com/245435/193431550-5f279c3d-a0f6-4e67-81bc-1c1538fc71be.png)
+
+### neovim telescope
+
+![CleanShot 2022-10-01 at 20 12 34@2x](https://user-images.githubusercontent.com/245435/193431554-9ab32711-3eab-4d0e-8cec-f7b09713abf5.png)
+
+### tmux-sessionizer and tmux tabs with icons
+
+![CleanShot 2022-10-01 at 20 13 06@2x](https://user-images.githubusercontent.com/245435/193431556-8ee21015-8cde-44d0-93c2-ac3040a44057.png)
 
 ## Release Process
 

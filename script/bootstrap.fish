@@ -94,8 +94,6 @@ function install_dotfiles
 
 	link_file $DOTFILES_ROOT/fish/plugins $__fish_config_dir/fish_plugins backup
 		or abort plugins
-	link_file $DOTFILES_ROOT/fish/gruvbox.theme $__fish_config_dir/themes/gruvbox.theme backup
-		or abort gruvbox.theme
 	link_file $DOTFILES_ROOT/system/bat.config $HOME/.config/bat/config backup
 		or abort bat
 	link_file $DOTFILES_ROOT/htop/htoprc $HOME/.config/htop/htoprc backup
@@ -108,6 +106,8 @@ function install_dotfiles
 		or abort kitty
 	link_file $DOTFILES_ROOT/kitty/macos-launch-services-cmdline $HOME/.config/kitty/macos-launch-services-cmdline backup
 		or abort kitty
+	link_file $DOTFILES_ROOT/wezterm $HOME/.config/wezterm backup
+		or abort wezterm
 	link_file $DOTFILES_ROOT/nvim/config $HOME/.config/nvim backup
 		or abort nvim
 	link_file $DOTFILES_ROOT/yamllint/config $HOME/.config/yamllint/config backup
@@ -157,7 +157,7 @@ fisher update
 	and success 'plugins'
 	or abort 'plugins'
 
-yes | fish_config theme save gruvbox
+yes | fish_config theme save "Catppuccin Mocha"
 	and success 'colorscheme'
 	or abort 'colorscheme'
 
