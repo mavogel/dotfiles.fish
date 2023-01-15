@@ -1,5 +1,6 @@
 #!/usr/bin/env fish
 abbr -a less 'less -r'
+abbr -a fo 'open -a Finder ./'
 
 if command -qs exa
 	abbr -a l 'exa -lh --icons'
