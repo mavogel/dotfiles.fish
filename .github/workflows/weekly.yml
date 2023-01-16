@@ -1,0 +1,28 @@
+name: Weekly build
+
+on:
+  schedule:
+    # Every Monday at 7AM UTC
+    - cron: "0 7 * * *"
+
+jobs:
+  install:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          path: dotfiles
+      - name: Setup CI structure
+        run: |
+          $GITHUB_WORKSPACE/dotfiles/.github/setup-ci.sh
+      # - name: Install dotfiles from the README
+      #   run: |
+      #     bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+      #     brew install fish grc mas
+      #     cd ~/.dotfiles
+      #     ./script/bootstrap.fish
+      # - name: Set macOS defaults
+      #   run: |
+      #     ~/.dotfiles/macos/set-defaults.sh
