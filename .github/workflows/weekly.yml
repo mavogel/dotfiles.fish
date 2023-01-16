@@ -16,9 +16,6 @@ jobs:
           path: dotfiles
       - name: Setup CI structure
         run: |
-          pwd
-          ls -lash
-          env|grep GITHUB
           ./github/setup-ci.sh
       # - name: Install dotfiles from the README
       #   run: |
