@@ -18,19 +18,13 @@ jobs:
           path: dotfiles
       - name: Setup CI structure
         run: |
-          pwd
-          ls -lash
-          ls -lash dotfiles
-          env|grep GITHUB
-          echo "home: $HOME"
-          ls -lash $GITHUB_WORKSPACE
           $GITHUB_WORKSPACE/dotfiles/.github/setup-ci.sh
-      # - name: Install dotfiles from the README
-      #   run: |
-      #     bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-      #     brew install fish grc mas
-      #     cd ~/.dotfiles
-      #     ./script/bootstrap.fish
-      # - name: Set macOS defaults
-      #   run: |
-      #     ~/.dotfiles/macos/set-defaults.sh
+      - name: Install dotfiles from the README
+        run: |
+          bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+          brew install fish grc mas
+          cd ~/.dotfiles
+          ./script/bootstrap.fish
+      - name: Set macOS defaults
+        run: |
+          ~/.dotfiles/macos/set-defaults.sh

@@ -16,7 +16,7 @@ jobs:
           path: dotfiles
       - name: Setup CI structure
         run: |
-          ./github/setup-ci.sh
+          $GITHUB_WORKSPACE/dotfiles/.github/setup-ci.sh
       # - name: Install dotfiles from the README
       #   run: |
       #     bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
