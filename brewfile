@@ -104,6 +104,7 @@ brew "tfswitch"
 # need to runs after 'tfswitch' to avoid the terraform install conflict
 brew "terragrunt"
 brew "timer"
+brew "tmux"
 brew "tree"
 cask "tunnelblick"
 brew "vegeta"
