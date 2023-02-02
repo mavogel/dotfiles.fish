@@ -2,8 +2,8 @@ name: Weekly build
 
 on:
   schedule:
-    # Every Monday at 7AM UTC
-    - cron: "0 7 * * *"
+    # Every Monday at 9AM UTC
+    - cron: "0 9 * * 1"
 
 jobs:
   install:
