@@ -8,9 +8,7 @@ all: help
 
 .PHONY: setup
 setup:   ## setup workspace
-	rm -f .git/hooks/commit-msg \
-	&& curl --fail -o .git/hooks/commit-msg https://raw.githubusercontent.com/hazcod/semantic-commit-hook/master/commit-msg \
-	&& chmod 500 .git/hooks/commit-msg
+	pre-commit install --hook-type commit-msg
 
 ###########
 ##@ Release
