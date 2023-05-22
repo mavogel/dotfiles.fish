@@ -22,9 +22,6 @@ MS-CST-E.vscode-devskim
 ms-kubernetes-tools.vscode-kubernetes-tools
 ms-python.python
 ms-python.vscode-pylance
-ms-toolsai.jupyter
-ms-toolsai.jupyter-keymap
-ms-toolsai.jupyter-renderers
 ms-vscode-remote.remote-containers
 ms-vscode.makefile-tools
 ms-vsliveshare.vsliveshare
@@ -37,7 +34,6 @@ rogalmic.bash-debug
 skyapps.fish-vscode
 streetsidesoftware.avro
 TabNine.tabnine-vscode
-tht13.python
 timonwong.shellcheck
 VisualStudioExptTeam.vscodeintellicode
 vscjava.vscode-java-debug
