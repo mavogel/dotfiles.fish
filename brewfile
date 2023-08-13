@@ -89,7 +89,7 @@ brew "mockery"
 cask "mullvadvpn"
 brew "neovim"
 cask "ngrok"
-brew "node@16" # NOTE: keep in sync with node/install.fish
+brew "node@18" # NOTE: keep in sync with node/install.fish
 brew "pnpm"
 brew "pre-commit"
 cask "rectangle"
