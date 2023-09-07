@@ -27,6 +27,8 @@ cask "chromium"
 brew "commitizen"
 brew "coreutils"
 brew "dive"
+# install before docker as it is a dependency for more
+brew "kubernetes-cli"
 cask "docker"
 brew "duf"
 brew "eksctl"
